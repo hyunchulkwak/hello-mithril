@@ -48,7 +48,8 @@ module.exports = {
     new SimpleProgressPlugin()
   ],
   externals: {
-    'mithril': 'm'
+    'mithril': 'm',
+    'jquery': 'jQuery'
   },
   eslint: {
     configFile: '.eslintrc'

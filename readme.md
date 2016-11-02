@@ -15,3 +15,13 @@ $ npm start
 ## Key Dependencies 👏
 - [mithril.js](http://mithril.js.org)
 - [babel-plugin-mjsx](https://github.com/Naddiseo/babel-plugin-mjsx)
+
+## emmet snippet
+Use this as snippets.json to use 'class' and 'for' instead of 'className' and 'htmlFor'.
+```
+{
+  "jsx": {
+    "filters": "html"
+  }
+}
+```

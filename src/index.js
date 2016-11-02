@@ -4,6 +4,13 @@ import Input from 'components/Input';
 import List from 'components/List';
 import Wrapper from 'components/Wrapper';
 
+const list = [
+  'write',
+  'something',
+  'into input',
+  'please'
+];
+
 const App = {
   controller(props) {
     return {
@@ -27,9 +34,7 @@ const App = {
         <Spinner default={0}/>
         <List list={c.state.list()}/>
         <Wrapper title="Wrapper Title">
-          <div>content1</div>
-          <div>content2</div>
-          <div>content3</div>
+          {list.map(text => <div key={text} class="carousel_content">{text}</div>)}
         </Wrapper>
       </div>
     );
@@ -38,13 +43,7 @@ const App = {
 
 m.mount(
   document.getElementById('root'),
-  <App
-    list={[
-      'write',
-      'something',
-      'into input'
-    ]}
-  />
+  <App list={list}/>
 );
 
 if (module.hot) {

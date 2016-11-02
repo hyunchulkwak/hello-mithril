@@ -33,6 +33,7 @@
     "webpack-simple-progress-plugin": "^0.0.1"
   },
   "dependencies": {
+    "jquery": "1.12.4",
     "mithril": "^0.2.5"
   }
 }

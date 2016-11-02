@@ -17,7 +17,8 @@
     "react/jsx-space-before-closing": 0,
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
-    "react/jsx-key": 1
+    "react/jsx-key": 1,
+    "react/no-unknown-property": [1, { ignore: ['class', 'for'] }]
   },
   "settings": {
     "import/resolver": {
