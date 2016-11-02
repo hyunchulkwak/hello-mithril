@@ -8,11 +8,16 @@ const Input = {
       },
 
       handleText(e) {
-        this.state.text(e.target.value);
+        this.state.text(e.target ? e.target.value : e.srcElement.value);
       },
 
       handleSubmit(e) {
-        e.preventDefault();
+        // e.preventDefault();
+        if (e.preventDefault) {
+          e.preventDefault();
+        } else {
+          e.returnValue = false; /* eslint no-param-reassign: 0 */
+        }
         props.addItem(this.state.text());
         this.state.text('');
       },
@@ -23,7 +28,7 @@ const Input = {
     return (
       <form onSubmit={c.handleSubmit.bind(c)}>
         <input type="text" onKeyUp={c.handleText.bind(c)} value={c.state.text()}/>
-        <button type="submit">okay</button>
+        <input type="submit" value="okay"/>
       </form>
     );
   },
