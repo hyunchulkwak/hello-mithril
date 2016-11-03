@@ -7,7 +7,7 @@
     "start": "node server.js",
     "build:release": "cross-env NODE_ENV=production webpack --config webpack.config.release.js",
     "build": "npm run clean && npm run build:release",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist/bundle.*"
   },
   "keywords": [],
   "author": "",
