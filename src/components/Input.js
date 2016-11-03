@@ -7,19 +7,21 @@ const Input = {
         text: m.prop(props.value || ''),
       },
 
-      handleSubmit(e) {
-        e.preventDefault();
+      handleSubmit() {
         props.addItem(this.state.text());
         this.state.text('');
+        return false;
       },
     };
   },
 
   view(c) {
+    const handleSubmit = c.handleSubmit.bind(c);
     return (
-      <form onSubmit={c.handleSubmit.bind(c)}>
+      <form onSubmit={handleSubmit}>
         <input type="text" onKeyUp={m.withAttr('value', c.state.text)} value={c.state.text()}/>
-        <input type="submit" value="okay"/>
+        <button type="button" onClick={handleSubmit}>okay</button>
+        <p>what you wrote: {c.state.text()}</p>
       </form>
     );
   },
