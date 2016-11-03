@@ -1,12 +1,9 @@
 import $ from 'jquery';
 
 const Wrapper = {
-  owl: null,
-
-  assignCarousel(el, isInit) {
+  assignSlick(el, isInit) {
     if (!isInit) {
-      $(el).owlCarousel();
-      this.owl = $(el).data('owlCarousel');
+      $(el).slick();
     }
   },
 
@@ -14,7 +11,7 @@ const Wrapper = {
     return (
       <div>
         <strong>{props.title}</strong>
-        <div config={this.assignCarousel.bind(this)}>
+        <div config={this.assignSlick.bind(this)}>
           {children}
         </div>
       </div>
