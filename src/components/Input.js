@@ -7,17 +7,8 @@ const Input = {
         text: m.prop(props.value || ''),
       },
 
-      handleText(e) {
-        this.state.text(e.target ? e.target.value : e.srcElement.value);
-      },
-
       handleSubmit(e) {
-        // e.preventDefault();
-        if (e.preventDefault) {
-          e.preventDefault();
-        } else {
-          e.returnValue = false; /* eslint no-param-reassign: 0 */
-        }
+        e.preventDefault();
         props.addItem(this.state.text());
         this.state.text('');
       },
@@ -27,7 +18,7 @@ const Input = {
   view(c) {
     return (
       <form onSubmit={c.handleSubmit.bind(c)}>
-        <input type="text" onKeyUp={c.handleText.bind(c)} value={c.state.text()}/>
+        <input type="text" onKeyUp={m.withAttr('value', c.state.text)} value={c.state.text()}/>
         <input type="submit" value="okay"/>
       </form>
     );
