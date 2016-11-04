@@ -26,14 +26,16 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.5.0",
+    "open": "^0.0.5",
     "rimraf": "^2.5.4",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2",
+    "webpack": "^2.1.0-beta",
+    "webpack-dev-server": "^2.1.0-beta",
     "webpack-hot-middleware": "^2.13.1",
     "webpack-simple-progress-plugin": "^0.0.1"
   },
   "dependencies": {
     "jquery": "1.12.4",
-    "mithril": "^0.2.5"
+    "mithril": "^0.2.5",
+    "webpack": "^2.1.0-beta"
   }
 }

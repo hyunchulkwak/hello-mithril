@@ -13,14 +13,13 @@ module.exports = {
     publicPath: '/static/'
   },
   resolve: {
-    root: [path.resolve('./src')],
-    extensions: [
-      '',
-      '.js'
-    ]
+    modules: [
+      path.resolve('./node_modules'),
+      path.resolve('./src')
+    ],
+    extensions: ['.js']
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -42,19 +41,17 @@ module.exports = {
         ascii_only: true,
         keep_quoted_props: true
       },
-      minimize: true
+      sourceMap: true
     }),
+    new webpack.LoaderOptionsPlugin({ minimize: true }),
     new SimpleProgressPlugin()
   ],
   externals: {
     'mithril': 'm',
     'jquery': 'jQuery'
   },
-  eslint: {
-    configFile: '.eslintrc'
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
         loader: 'babel',
@@ -62,7 +59,10 @@ module.exports = {
       }, {
         test: /.jsx?$/,
         loader: 'eslint',
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'src'),
+        options: {
+          configFile: '.eslintrc'
+        }
       }
     ]
   }

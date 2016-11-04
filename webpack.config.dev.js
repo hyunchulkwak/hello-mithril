@@ -16,14 +16,13 @@ module.exports = {
     publicPath: '/static/'
   },
   resolve: {
-    root: [path.resolve('./src')],
-    extensions: [
-      '',
-      '.js'
-    ]
+    modules: [
+      path.resolve('./node_modules'),
+      path.resolve('./src')
+    ],
+    extensions: ['.js']
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new SimpleProgressPlugin()
@@ -32,11 +31,8 @@ module.exports = {
     'mithril': 'm',
     'jquery': 'jQuery'
   },
-  eslint: {
-    configFile: '.eslintrc'
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
         loader: 'babel',
@@ -44,7 +40,10 @@ module.exports = {
       }, {
         test: /.jsx?$/,
         loader: 'eslint',
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'src'),
+        options: {
+          configFile: '.eslintrc'
+        }
       }
     ]
   }
